@@ -9,7 +9,7 @@ public class Department {
     private String name;
     private Teacher[] teachers;
 
-    public Department (String name){
+    public Department(String name) {
         this.name = name;
         teacherCount++;
     }
@@ -29,4 +29,34 @@ public class Department {
     public void setTeachers(Teacher[] teachers) {
         this.teachers = teachers;
     }
+
+    public int calculateSalaries() {
+
+        int result = 0;
+
+        for (Teacher t : teachers) {
+
+            if (t != null) {
+                result = result + t.getSalaryPerMonth();
+            }
+        }
+        return result;
+    }
+
+    public int calculateSalaries(boolean isPremium) {
+
+        int result = 0;
+
+        for (Teacher t : teachers) {
+
+            if (t != null) {
+                if (isPremium == t.isPremium()) {
+                    result = result + t.getSalaryPerMonth();
+                }
+            }
+        }
+        return result;
+
+    }
 }
+

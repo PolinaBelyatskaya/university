@@ -1,6 +1,7 @@
 package university.items;
 
 import university.documents.Timetable;
+import university.people.Teacher;
 
 public class Faculty {
 
@@ -8,10 +9,12 @@ public class Faculty {
     private Department[] departments;
     private Group[] groups;
     private Timetable timetable;
+    private DeanOffice deanOffice;
 
-    public Faculty(String name, Department[] departments){
+    public Faculty(String name, Department[] departments, Group[] groups) {
         this.name = name;
         this.departments = departments;
+        this.groups = groups;
     }
 
     public String getName() {
@@ -45,4 +48,33 @@ public class Faculty {
     public void setTimetable(Timetable timetable) {
         this.timetable = timetable;
     }
+
+    public DeanOffice getDeanOffice() {
+        return deanOffice;
+    }
+
+    public void setDeanOffice(DeanOffice deanOffice) {
+        this.deanOffice = deanOffice;
+    }
+
+    public int calculateExpenses() {
+
+        int teacherExpenses = 0;
+
+        for (Department d : departments) {
+            teacherExpenses = teacherExpenses + d.calculateSalaries();
+        }
+
+        int studentExpenses = 0;
+
+        for (Group g : groups) {
+            studentExpenses = studentExpenses + g.calculateScholarships();
+
+        }
+
+        int sum = teacherExpenses + studentExpenses;
+
+        return sum;
+    }
+
 }

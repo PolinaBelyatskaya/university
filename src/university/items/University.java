@@ -46,4 +46,14 @@ public class University {
     public void setLibrary(Library library) {
         this.library = library;
     }
+
+    public int calculateExpenses(){
+
+        int result = 0;
+
+        for (Faculty f : faculties) {
+            result = result + f.calculateExpenses();
+        }
+        return result;
+    }
 }

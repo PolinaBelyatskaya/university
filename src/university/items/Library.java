@@ -4,13 +4,13 @@ import university.Book;
 import university.documents.StudentID;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Library {
 
     private Book[] books;
     private StudentID[] studentIDs;
-    private LocalDate startDate;
-    private LocalDate endDate;
+
 
     public Library (Book[] books){
         this.books = books;
@@ -32,19 +32,13 @@ public class Library {
         this.studentIDs = studentIDs;
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+    public void issueBook (StudentID studentID){
+        LocalDate today = LocalDate.now();
+        if (studentID.getExpirationDate().isAfter(today)){
+            System.out.println("Student can get a book");
+        }
+        else {
+            System.out.println("Student can't get a book");
+        }
     }
 }
