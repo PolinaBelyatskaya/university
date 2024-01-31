@@ -1,26 +1,17 @@
-package university.items;
+package universityProject.items;
 
-import university.people.Teacher;
+import universityProject.people.Teacher;
 
-public class Department {
+import java.util.Arrays;
 
-    protected static int teacherCount = 0;
+public class Department extends UniversityUnit{
 
-    private String name;
     private Teacher[] teachers;
 
     public Department(String name) {
-        this.name = name;
-        teacherCount++;
+        super(name);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Teacher[] getTeachers() {
         return teachers;
@@ -28,6 +19,26 @@ public class Department {
 
     public void setTeachers(Teacher[] teachers) {
         this.teachers = teachers;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return Arrays.equals(teachers, that.teachers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(teachers);
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "teachers=" + Arrays.toString(teachers) +
+                '}';
     }
 
     public int calculateSalaries() {

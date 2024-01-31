@@ -1,28 +1,18 @@
-package university.items;
+package universityProject.items;
 
-import university.people.Student;
-import university.people.Teacher;
+import universityProject.people.Student;
 
-public class Group {
+import java.util.Arrays;
 
-    protected static int studentCount = 0;
-    private int number;
+public class Group extends UniversityUnit{
+
     private Student[] students;
 
-    public Group(int number,  Student[] students){
-
-        this.number = number;
+    public Group(String name,  Student[] students){
+        super(name);
         this.students  = students;
-        studentCount++;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
 
     public Student[] getStudents() {
         return students;
@@ -30,6 +20,26 @@ public class Group {
 
     public void setStudents(Student[] students) {
         this.students = students;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Group group = (Group) o;
+        return Arrays.equals(students, group.students);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(students);
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "students=" + Arrays.toString(students) +
+                '}';
     }
 
     public int calculateScholarships(){

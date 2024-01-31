@@ -1,5 +1,7 @@
 package university;
 
+import java.util.Objects;
+
 public class Address {
 
     private String country;
@@ -46,5 +48,29 @@ public class Address {
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return aptNumber == address.aptNumber && postalCode == address.postalCode && Objects.equals(country, address.country) && Objects.equals(city, address.city) && Objects.equals(street, address.street);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, city, street, aptNumber, postalCode);
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", aptNumber=" + aptNumber +
+                ", postalCode=" + postalCode +
+                '}';
     }
 }

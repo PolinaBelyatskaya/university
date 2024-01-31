@@ -1,28 +1,21 @@
-package university.items;
+package universityProject.items;
 
-import university.documents.Timetable;
-import university.people.Teacher;
+import universityProject.documents.Timetable;
 
-public class Faculty {
+import java.util.Arrays;
+import java.util.Objects;
 
-    private String name;
+public class Faculty extends UniversityUnit{
+
     private Department[] departments;
     private Group[] groups;
     private Timetable timetable;
     private DeanOffice deanOffice;
 
     public Faculty(String name, Department[] departments, Group[] groups) {
-        this.name = name;
+        super(name);
         this.departments = departments;
         this.groups = groups;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Department[] getDepartments() {
@@ -55,6 +48,32 @@ public class Faculty {
 
     public void setDeanOffice(DeanOffice deanOffice) {
         this.deanOffice = deanOffice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Faculty faculty = (Faculty) o;
+        return Arrays.equals(departments, faculty.departments) && Arrays.equals(groups, faculty.groups) && Objects.equals(timetable, faculty.timetable) && Objects.equals(deanOffice, faculty.deanOffice);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(timetable, deanOffice);
+        result = 31 * result + Arrays.hashCode(departments);
+        result = 31 * result + Arrays.hashCode(groups);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "departments=" + Arrays.toString(departments) +
+                ", groups=" + Arrays.toString(groups) +
+                ", timetable=" + timetable +
+                ", deanOffice=" + deanOffice +
+                '}';
     }
 
     public int calculateExpenses() {
