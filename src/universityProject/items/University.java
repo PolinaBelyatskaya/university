@@ -1,16 +1,11 @@
-package university;
+package universityProject.items;
 
-import universityProject.items.Department;
-import universityProject.items.Faculty;
-import universityProject.items.Group;
-import universityProject.items.Library;
-import universityProject.people.Student;
-import universityProject.people.Teacher;
+import university.Address;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class University {
+public class University extends UniversityUnit {
 
     private String name;
     private Faculty[] faculties;
@@ -18,7 +13,7 @@ public class University {
     private Library library;
 
     public University(String name) {
-        this.name = name;
+        super(name);
     }
 
     public String getName() {
@@ -79,6 +74,7 @@ public class University {
     }
 
 
+    @Override
     public int calculateExpenses() {
 
         int result = 0;
@@ -91,40 +87,12 @@ public class University {
 
     public int calculateExpenses(boolean isPremium) {
 
-        int teacherExpenses = 0;
-        int studentExpenses = 0;
+        int expenses = 0;
 
         for (Faculty f : faculties) {
-
-            if (f != null) {
-//
-                for (Department d : f.getDepartments()) {
-                    int result = d.calculateSalaries(isPremium);
-                    teacherExpenses = teacherExpenses + result;
-
-                }
-//                    for (Teacher t : d.getTeachers())
-//                        if (isPremium == t.isPremium()) {
-//                            teacherExpenses = teacherExpenses + t.getSalaryPerMonth();
-//
-//                       }
-
-                for (Group g : f.getGroups()) {
-                    int result = g.calculateScholarships(isPremium);
-
-                    studentExpenses = studentExpenses + result;
-                }
-            }
-//            for (Student s : students)
-//
-//
-//                if (isPremium == s.isPremium()) {
-//                    studentExpenses = studentExpenses + s.getScholarship();
-//                }
-
+            expenses = expenses + f.calculateExpenses(isPremium);
         }
-        int sum = teacherExpenses + studentExpenses;
-
-        return sum;
+        return expenses;
     }
 }
+

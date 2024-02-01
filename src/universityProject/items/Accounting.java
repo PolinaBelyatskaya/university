@@ -1,4 +1,4 @@
-package university;
+package universityProject.items;
 
 import universityProject.items.Department;
 import universityProject.items.Faculty;
@@ -15,16 +15,6 @@ public final class Accounting {
             peopleTaxes = peopleTaxes + p.calculateTax();
 
         }
-
-//        int studentsTaxes = 0;
-//
-//        for (Person student : group.getStudents()) {
-//
-//            studentsTaxes = studentsTaxes + student.getTax();
-//        }
-//
-//        int sumOfTaxes = teachersTaxes + studentsTaxes;
-//
         return peopleTaxes;
     }
 }

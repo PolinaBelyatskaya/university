@@ -5,17 +5,14 @@ import universityProject.people.Student;
 
 import java.util.Arrays;
 
-public class DeanOffice extends UniversityUnit{
-
+public class DeanOffice {
 
 
     private Student[] students;
     private RecordBook[] recordBooks;
 
-    public DeanOffice(String name) {
-        super(name);
+    public DeanOffice() {
     }
-
 
     public Student[] getStudents() {
         return students;
@@ -65,9 +62,9 @@ public class DeanOffice extends UniversityUnit{
         }
     }
 
-    public void calculateScholarship(RecordBook recordBook){
+    public void calculateScholarship(RecordBook recordBook) {
         int mark = recordBook.getMark();
-        if (mark < 2){
+        if (mark < 2) {
             System.out.println("student is not getting scholarship");
         }
     }

@@ -4,7 +4,7 @@ import universityProject.documents.Book;
 import universityProject.items.*;
 import universityProject.people.Student;
 import universityProject.people.Teacher;
-import university.University;
+import universityProject.items.University;
 
 import java.util.Scanner;
 
@@ -74,7 +74,7 @@ public class Main {
         books[0] = book1;
         books[1] = book2;
 
-        Library library = new Library("Library of linguistic university", books);
+        Library library = new Library(books);
 
         Department department1 = new Department("Department of Foreign Languages");
         department1.setTeachers(teachers);
@@ -109,8 +109,7 @@ public class Main {
         Faculty[] faculties = new Faculty[1];
         faculties[0] = faculty;
 
-
-        //faculty.calculateExpenses();
+        int tax =  Accounting.calculateTaxes(teachers);
 
         University university = new University("Minsk State Linguistic University");
         university.setFaculties(faculties);
@@ -118,14 +117,16 @@ public class Main {
         int sumOfExpenses = university.calculateExpenses();
         System.out.println(sumOfExpenses);
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите зарплату сотрудника:");
-        float salary = scanner.nextFloat();
-        System.out.println("Введите сумму налога:");
-        int tax = scanner.nextInt();
 
-        float result = salary - tax;
-        System.out.println(result);
+
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Введите зарплату сотрудника:");
+//        float salary = scanner.nextFloat();
+//        System.out.println("Введите сумму налога:");
+//        int tax = scanner.nextInt();
+//
+//        float result = salary - tax;
+//        System.out.println(result);
 
     }
 }

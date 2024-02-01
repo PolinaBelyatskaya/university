@@ -1,11 +1,12 @@
 package universityProject.items;
 
 import universityProject.documents.Timetable;
+import universityProject.people.Teacher;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Faculty extends UniversityUnit{
+public class Faculty extends UniversityUnit {
 
     private Department[] departments;
     private Group[] groups;
@@ -76,24 +77,44 @@ public class Faculty extends UniversityUnit{
                 '}';
     }
 
+    @Override
     public int calculateExpenses() {
 
         int teacherExpenses = 0;
 
         for (Department d : departments) {
-            teacherExpenses = teacherExpenses + d.calculateSalaries();
+            teacherExpenses = teacherExpenses + d.calculateExpenses();
         }
 
         int studentExpenses = 0;
 
         for (Group g : groups) {
-            studentExpenses = studentExpenses + g.calculateScholarships();
+            studentExpenses = studentExpenses + g.calculateExpenses();
 
         }
 
         int sum = teacherExpenses + studentExpenses;
 
         return sum;
+    }
+
+    public int calculateExpenses(boolean isPremium) {
+
+        int teacherExpenses = 0;
+
+        for (Department d : departments) {
+            teacherExpenses = teacherExpenses + d.calculateExpenses();
+        }
+
+        int studentExpenses = 0;
+
+        for (Group g : groups) {
+            studentExpenses = studentExpenses + g.calculateExpenses();
+        }
+
+        int sum = teacherExpenses + studentExpenses;
+        return sum;
+
     }
 
 }

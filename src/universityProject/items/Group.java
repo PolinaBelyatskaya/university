@@ -42,7 +42,8 @@ public class Group extends UniversityUnit{
                 '}';
     }
 
-    public int calculateScholarships(){
+    @Override
+    public int calculateExpenses(){
 
         int result = 0;
 
@@ -56,7 +57,7 @@ public class Group extends UniversityUnit{
         return result;
     }
 
-    public int calculateScholarships(boolean isPremium) {
+    public int calculateExpenses(boolean isPremium) {
 
         int result = 0;
 

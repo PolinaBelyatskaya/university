@@ -6,14 +6,13 @@ import universityProject.documents.StudentID;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class Library extends UniversityUnit{
+public class Library {
 
     private Book[] books;
     private StudentID[] studentIDs;
 
 
-    public Library (String name, Book[] books){
-        super (name);
+    public Library (Book[] books){
         this.books = books;
     }
 

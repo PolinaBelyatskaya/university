@@ -29,4 +29,6 @@ public abstract class UniversityUnit {
                 "name='" + name + '\'' +
                 '}';
     }
+
+    public abstract int calculateExpenses();
 }

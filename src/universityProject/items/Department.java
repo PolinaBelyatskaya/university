@@ -41,7 +41,8 @@ public class Department extends UniversityUnit{
                 '}';
     }
 
-    public int calculateSalaries() {
+    @Override
+    public int calculateExpenses() {
 
         int result = 0;
 
@@ -54,7 +55,7 @@ public class Department extends UniversityUnit{
         return result;
     }
 
-    public int calculateSalaries(boolean isPremium) {
+    public int calculateExpenses(boolean isPremium) {
 
         int result = 0;
 
