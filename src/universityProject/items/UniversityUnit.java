@@ -1,5 +1,7 @@
 package universityProject.items;
 
+import universityProject.people.Person;
+
 import java.util.Objects;
 
 public abstract class UniversityUnit {
@@ -7,6 +9,14 @@ public abstract class UniversityUnit {
     private String name;
 
     public UniversityUnit(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -31,4 +41,11 @@ public abstract class UniversityUnit {
     }
 
     public abstract int calculateExpenses();
-}
+
+    public abstract int calculateExpenses(boolean isPremium);
+
+    public abstract int calculateTax();
+
+//    public abstract Person[] getPersons();
+
+    }

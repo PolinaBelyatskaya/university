@@ -1,6 +1,7 @@
 package universityProject.items;
 
 import universityProject.people.Student;
+import universityProject.people.Teacher;
 
 import java.util.Arrays;
 
@@ -57,6 +58,7 @@ public class Group extends UniversityUnit{
         return result;
     }
 
+    @Override
     public int calculateExpenses(boolean isPremium) {
 
         int result = 0;
@@ -71,5 +73,19 @@ public class Group extends UniversityUnit{
         }
         return result;
 
+    }
+
+    @Override
+    public int calculateTax(){
+
+        int tax = 0;
+
+        for (Student s : students) {
+
+            if (s != null) {
+                tax = tax + s.calculateTax();
+            }
+        }
+        return tax;
     }
 }

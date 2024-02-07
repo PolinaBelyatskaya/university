@@ -98,23 +98,43 @@ public class Faculty extends UniversityUnit {
         return sum;
     }
 
+    @Override
     public int calculateExpenses(boolean isPremium) {
 
         int teacherExpenses = 0;
 
         for (Department d : departments) {
-            teacherExpenses = teacherExpenses + d.calculateExpenses();
+            teacherExpenses = teacherExpenses + d.calculateExpenses(isPremium);
         }
 
         int studentExpenses = 0;
 
         for (Group g : groups) {
-            studentExpenses = studentExpenses + g.calculateExpenses();
+            studentExpenses = studentExpenses + g.calculateExpenses(isPremium);
         }
 
         int sum = teacherExpenses + studentExpenses;
         return sum;
 
+    }
+
+    @Override
+    public int calculateTax(){
+
+        int teacherTaxes = 0;
+
+        for (Department d : departments) {
+            teacherTaxes = teacherTaxes + d.calculateTax();
+        }
+
+        int studentTaxes = 0;
+
+        for (Group g : groups) {
+            studentTaxes = studentTaxes + g.calculateTax();
+        }
+
+        int sum = teacherTaxes + studentTaxes;
+        return sum;
     }
 
 }

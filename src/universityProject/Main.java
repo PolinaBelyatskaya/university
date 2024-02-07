@@ -2,6 +2,7 @@ package universityProject;
 
 import universityProject.documents.Book;
 import universityProject.items.*;
+import universityProject.people.Person;
 import universityProject.people.Student;
 import universityProject.people.Teacher;
 import universityProject.items.University;
@@ -67,6 +68,13 @@ public class Main {
         students1[1] = student5;
         students1[2] = student6;
 
+        Person[] people = new Person[4];
+        people[0] = teacher1;
+        people [1] = student1;
+        people [2] = teacher2;
+        people [3] = student2;
+
+
         Book book1 = new Book("English grammar");
         Book book2 = new Book("English literature");
 
@@ -109,13 +117,18 @@ public class Main {
         Faculty[] faculties = new Faculty[1];
         faculties[0] = faculty;
 
-        int tax =  Accounting.calculateTaxes(teachers);
 
         University university = new University("Minsk State Linguistic University");
         university.setFaculties(faculties);
 
+        University[] universities = new University[1];
+        universities[0] = university;
+
         int sumOfExpenses = university.calculateExpenses();
         System.out.println(sumOfExpenses);
+
+        int tax =  Accounting.calculateTaxes(university);
+        System.out.println("tax is" + tax);
 
 
 

@@ -1,13 +1,13 @@
 package universityProject.items;
 
 import university.Address;
+import universityProject.people.Person;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class University extends UniversityUnit {
 
-    private String name;
     private Faculty[] faculties;
     private Address address;
     private Library library;
@@ -16,13 +16,6 @@ public class University extends UniversityUnit {
         super(name);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Faculty[] getFaculties() {
         return faculties;
@@ -52,13 +45,14 @@ public class University extends UniversityUnit {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         University that = (University) o;
-        return Objects.equals(name, that.name) && Arrays.equals(faculties, that.faculties) && Objects.equals(address, that.address) && Objects.equals(library, that.library);
+        return Arrays.equals(faculties, that.faculties) && Objects.equals(address, that.address) && Objects.equals(library, that.library);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, address, library);
+        int result = Objects.hash(address, library);
         result = 31 * result + Arrays.hashCode(faculties);
         return result;
     }
@@ -66,13 +60,11 @@ public class University extends UniversityUnit {
     @Override
     public String toString() {
         return "University{" +
-                "name='" + name + '\'' +
-                ", faculties=" + Arrays.toString(faculties) +
+                "faculties=" + Arrays.toString(faculties) +
                 ", address=" + address +
                 ", library=" + library +
                 '}';
     }
-
 
     @Override
     public int calculateExpenses() {
@@ -85,6 +77,7 @@ public class University extends UniversityUnit {
         return result;
     }
 
+    @Override
     public int calculateExpenses(boolean isPremium) {
 
         int expenses = 0;
@@ -94,5 +87,25 @@ public class University extends UniversityUnit {
         }
         return expenses;
     }
+
+
+    @Override
+    public int calculateTax() {
+
+        int taxes = 0;
+
+        for (Faculty f : faculties) {
+            taxes = taxes + f.calculateTax();
+        }
+        return taxes;
+    }
 }
+
+//    @Override
+//    public Person[] getPerson(){
+//
+//
+//        return
+//    }
+//}
 

@@ -55,6 +55,7 @@ public class Department extends UniversityUnit{
         return result;
     }
 
+    @Override
     public int calculateExpenses(boolean isPremium) {
 
         int result = 0;
@@ -69,6 +70,20 @@ public class Department extends UniversityUnit{
         }
         return result;
 
+    }
+
+    @Override
+    public int calculateTax(){
+
+        int tax = 0;
+
+        for (Teacher t : teachers) {
+
+            if (t != null) {
+                tax = tax + t.calculateTax();
+            }
+        }
+        return tax;
     }
 }
 
