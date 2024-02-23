@@ -1,17 +1,18 @@
 package universityProject.items;
 
+import universityProject.people.Person;
 import universityProject.people.Student;
 import universityProject.people.Teacher;
 
 import java.util.Arrays;
 
-public class Group extends UniversityUnit{
+public class Group extends UniversityUnit {
 
     private Student[] students;
 
-    public Group(String name,  Student[] students){
+    public Group(String name, Student[] students) {
         super(name);
-        this.students  = students;
+        this.students = students;
     }
 
 
@@ -44,11 +45,11 @@ public class Group extends UniversityUnit{
     }
 
     @Override
-    public int calculateExpenses(){
+    public int calculateExpenses() {
 
         int result = 0;
 
-        for (Student t : students){
+        for (Student t : students) {
 
             if (t != null) {
                 result = result + t.getScholarship();
@@ -76,7 +77,7 @@ public class Group extends UniversityUnit{
     }
 
     @Override
-    public int calculateTax(){
+    public int calculateTax() {
 
         int tax = 0;
 
@@ -87,5 +88,10 @@ public class Group extends UniversityUnit{
             }
         }
         return tax;
+    }
+
+    @Override
+    public Person[] getPersons() {
+        return getStudents();
     }
 }

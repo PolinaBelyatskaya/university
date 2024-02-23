@@ -1,6 +1,7 @@
 package universityProject.items;
 
 import universityProject.documents.Timetable;
+import universityProject.people.Person;
 import universityProject.people.Teacher;
 
 import java.util.Arrays;
@@ -119,7 +120,7 @@ public class Faculty extends UniversityUnit {
     }
 
     @Override
-    public int calculateTax(){
+    public int calculateTax() {
 
         int teacherTaxes = 0;
 
@@ -135,6 +136,40 @@ public class Faculty extends UniversityUnit {
 
         int sum = teacherTaxes + studentTaxes;
         return sum;
+    }
+
+    @Override
+    public Person[] getPersons() {
+
+        int i = 0;
+
+        for (Department department : departments) {
+            i = i + department.getPersons().length;
+        }
+        int x = 0;
+
+        for (Group group : groups) {
+            x = x + group.getPersons().length;
+        }
+        Person[] allPeople = new Person[i + x];
+
+        int l = 0;
+
+        for (Department department : departments) {
+            Person[] teachers = department.getPersons();
+
+            System.arraycopy(teachers, 0, allPeople, l, teachers.length);
+            l = l + teachers.length;
+        }
+
+        for (Group group : groups){
+            Person[] students = group.getPersons();
+
+            System.arraycopy(students, 0, allPeople, l, students.length);
+            l = l + students.length;
+        }
+        return allPeople;
+
     }
 
 }

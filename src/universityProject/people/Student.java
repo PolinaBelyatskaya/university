@@ -16,8 +16,8 @@ public class Student extends Person {
     protected static int studentCount = 0;
     protected static int premiumStudentCount = 0;
 
-    public Student(String firstName, String lastName, int tax) {
-        super(firstName, lastName, tax);
+    public Student(String firstName, String lastName) {
+        super(firstName, lastName);
         studentCount++;
     }
 

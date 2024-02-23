@@ -6,13 +6,12 @@ public abstract class Person {
 
     private String firstName;
     private String lastName;
-    private int tax;
 
 
-    public Person(String firstName, String lastName, int tax) {
+
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.tax = tax;
     }
 
     public String getFirstName() {
@@ -31,25 +30,18 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public int getTax() {
-        return tax;
-    }
-
-    public void setTax(int tax) {
-        this.tax = tax;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return tax == person.tax && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName);
+        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, tax);
+        return Objects.hash(firstName, lastName);
     }
 
     @Override
@@ -57,7 +49,6 @@ public abstract class Person {
         return "Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", tax=" + tax +
                 '}';
     }
 

@@ -8,37 +8,13 @@ import universityProject.people.Teacher;
 
 public final class Accounting {
 
-//    public static int calculateTaxes(UniversityUnit universityUnit){
-//
-//        int tax = 0;
-//
-//        Faculty[] faculties = university.getFaculties();
-//    }
 
+    public static int calculateTaxes(UniversityUnit universityUnit){
 
+        Person[] people = universityUnit.getPersons();
 
-    public static int calculateTaxes(University university){
+        int tax = calculateTaxes(people);
 
-        int tax = 0;
-
-        Faculty[] faculties = university.getFaculties();
-        for(Faculty faculty : faculties) {
-            Department[] departments = faculty.getDepartments();
-            for (Department department : departments) {
-                tax = tax + calculateTaxes(department.getTeachers());
-                Teacher[] teachers = department.getTeachers();
-                for (Teacher teacher : teachers) {
-                    teacher.calculateTax();
-                }
-
-            }
-
-
-            Group[] groups = faculty.getGroups();
-            for (Group group : groups){
-                tax = tax + calculateTaxes(group.getStudents());
-            }
-        }
         return tax;
 
     }
@@ -54,5 +30,27 @@ public final class Accounting {
         }
         return peopleTaxes;
     }
+//    public static int calculateTaxes(UniversityUnit universityUnit) {
+//
+//        int tax = 0;
+//
+//        Faculty[] faculties = university.getFaculties();
+//        for (Faculty faculty : faculties) {
+//            Department[] departments = faculty.getDepartments();
+//            for (Department department : departments) {
+//                tax = tax + calculateTaxes(department.getTeachers());
+//                Teacher[] teachers = department.getTeachers();
+//                for (Teacher teacher : teachers) {
+//                    teacher.calculateTax();
+//                }
+//            }
+//            Group[] groups = faculty.getGroups();
+//            for (Group group : groups) {
+//                tax = tax + calculateTaxes(group.getStudents());
+//            }
+//        }
+//        return tax;
+//
+//    }
 }
 

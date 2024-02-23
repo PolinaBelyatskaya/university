@@ -12,8 +12,8 @@ public class Teacher extends Person {
     protected static int teacherCount = 0;
     protected static int premiumTeacherCount = 0;
 
-    public Teacher(String firstName, String lastName, int tax, String degree) {
-        super(firstName, lastName, tax);
+    public Teacher(String firstName, String lastName, String degree) {
+        super(firstName, lastName);
         this. degree = degree;
         teacherCount++;
     }

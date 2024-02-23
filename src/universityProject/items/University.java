@@ -99,13 +99,28 @@ public class University extends UniversityUnit {
         }
         return taxes;
     }
-}
 
-//    @Override
-//    public Person[] getPerson(){
-//
-//
-//        return
-//    }
-//}
+    @Override
+    public Person[] getPersons() {
+
+        int i = 0;
+
+        for (Faculty faculty : faculties) {
+            i = i + faculty.getPersons().length;
+        }
+
+        Person[] allPeople = new Person[i];
+
+//        int l = 0;
+
+        for (Faculty faculty : faculties) {
+            Person[] people = faculty.getPersons();
+
+            System.arraycopy(people, 0, allPeople, 0, people.length);
+//            l = l + people.length;
+        }
+        return allPeople;
+
+    }
+}
 

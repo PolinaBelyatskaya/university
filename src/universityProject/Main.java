@@ -12,22 +12,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Teacher teacher1 = new Teacher("Sam", "Smith", 20,  "bachelor");
+        Teacher teacher1 = new Teacher("Sam", "Smith",  "bachelor");
         teacher1.setSalaryPerMonth(300);
 
-        Teacher teacher2 = new Teacher("Emily", "Simmons", 30, "master");
+        Teacher teacher2 = new Teacher("Emily", "Simmons", "master");
         teacher2.setSalaryPerMonth(500);
 
-        Teacher teacher3 = new Teacher("Nicole", "Flores", 20, "doctorate");
+        Teacher teacher3 = new Teacher("Nicole", "Flores", "doctorate");
         teacher3.setSalaryPerMonth(900);
 
-        Teacher teacher4 = new Teacher("Emma", "Watson", 30, "bachelor");
+        Teacher teacher4 = new Teacher("Emma", "Watson", "bachelor");
         teacher4.setSalaryPerMonth(450);
 
-        Teacher teacher5 = new Teacher("Eli", "Rose", 20, "master");
+        Teacher teacher5 = new Teacher("Eli", "Rose", "master");
         teacher5.setSalaryPerMonth(550);
 
-        Teacher teacher6 = new Teacher("Joey", "Rivers", 30, "doctorate");
+        Teacher teacher6 = new Teacher("Joey", "Rivers", "doctorate");
         teacher6.setSalaryPerMonth(950);
 
         Teacher[] teachers = new Teacher[3];
@@ -40,22 +40,22 @@ public class Main {
         teachers1[1] = teacher5;
         teachers1[2] = teacher6;
 
-        Student student1 = new Student("Peter", "Bryant", 10);
+        Student student1 = new Student("Peter", "Bryant");
         student1.setScholarship(100);
 
-        Student student2 = new Student("Douglas", "Ward", 20);
+        Student student2 = new Student("Douglas", "Ward");
         student2.setScholarship(200);
 
-        Student student3 = new Student("Luisa", "Evans", 10);
+        Student student3 = new Student("Luisa", "Evans");
         student3.setScholarship(300);
 
-        Student student4 = new Student("Paul", "Butler", 20);
+        Student student4 = new Student("Paul", "Butler");
         student4.setScholarship(150);
 
-        Student student5 = new Student("Scott", "Tucker", 10);
+        Student student5 = new Student("Scott", "Tucker");
         student5.setScholarship(250);
 
-        Student student6 = new Student("Francesca", "Sanders", 20);
+        Student student6 = new Student("Francesca", "Sanders");
         student6.setScholarship(350);
 
         Student[] students = new Student[3];
@@ -68,7 +68,7 @@ public class Main {
         students1[1] = student5;
         students1[2] = student6;
 
-        Person[] people = new Person[4];
+        Person[] people = new Person[12];
         people[0] = teacher1;
         people [1] = student1;
         people [2] = teacher2;
@@ -127,8 +127,8 @@ public class Main {
         int sumOfExpenses = university.calculateExpenses();
         System.out.println(sumOfExpenses);
 
-        int tax =  Accounting.calculateTaxes(university);
-        System.out.println("tax is" + tax);
+        int tax =  Accounting.calculateTaxes(department1);
+        System.out.println("tax is" + " " + tax);
 
 
 

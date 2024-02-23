@@ -46,6 +46,6 @@ public abstract class UniversityUnit {
 
     public abstract int calculateTax();
 
-//    public abstract Person[] getPersons();
+    public abstract Person[] getPersons();
 
     }

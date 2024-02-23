@@ -1,5 +1,6 @@
 package universityProject.items;
 
+import universityProject.people.Person;
 import universityProject.people.Teacher;
 
 import java.util.Arrays;
@@ -84,6 +85,11 @@ public class Department extends UniversityUnit{
             }
         }
         return tax;
+    }
+
+    @Override
+    public Person[] getPersons(){
+        return getTeachers();
     }
 }
 
