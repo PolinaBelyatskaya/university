@@ -1,8 +1,10 @@
 package universityProject.people;
 
+import universityProject.ITax;
+
 import java.util.Objects;
 
-public abstract class Person {
+public abstract class Person implements ITax {
 
     private String firstName;
     private String lastName;
@@ -52,5 +54,4 @@ public abstract class Person {
                 '}';
     }
 
-    public abstract int  calculateTax();
 }

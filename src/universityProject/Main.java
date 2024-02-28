@@ -127,7 +127,7 @@ public class Main {
         int sumOfExpenses = university.calculateExpenses();
         System.out.println(sumOfExpenses);
 
-        int tax =  Accounting.calculateTaxes(department1);
+        int tax =  Accounting.calculateTaxes(university);
         System.out.println("tax is" + " " + tax);
 
 

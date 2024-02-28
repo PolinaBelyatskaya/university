@@ -1,11 +1,12 @@
 package universityProject.people;
 
+import universityProject.ITax;
 import universityProject.documents.RecordBook;
 import universityProject.documents.StudentID;
 
 import java.util.Objects;
 
-public class Student extends Person {
+public class Student extends Person implements ITax {
 
     private RecordBook recordBook;
     private StudentID studentID;
@@ -77,28 +78,27 @@ public class Student extends Person {
                 '}';
     }
 
-    public static void premiumStudentCount (){
+    public static void premiumStudentCount() {
 
-        if (isPremium){
+        if (isPremium) {
             premiumStudentCount++;
-        }
-        else {
+        } else {
             premiumStudentCount--;
         }
     }
 
     @Override
-    public int  calculateTax(){
-
+    public int calculateTax() {
         int tax;
 
-        if(isPremium){
-            tax = scholarship/10;
-        }
-        else{
-            tax = scholarship*20/100;
+        if (isPremium) {
+            tax = scholarship / 10;
+        } else {
+            tax = scholarship * 20 / 100;
         }
 
         return tax;
     }
 }
+
+

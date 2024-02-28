@@ -1,10 +1,11 @@
 package universityProject.items;
 
+import universityProject.ITax;
 import universityProject.people.Person;
 
 import java.util.Objects;
 
-public abstract class UniversityUnit {
+public abstract class UniversityUnit implements ITax {
 
     private String name;
 
@@ -40,11 +41,11 @@ public abstract class UniversityUnit {
                 '}';
     }
 
-    public abstract int calculateExpenses();
+//    public abstract int calculateExpenses();
+//
+//    public abstract int calculateExpenses(boolean isPremium);
 
-    public abstract int calculateExpenses(boolean isPremium);
-
-    public abstract int calculateTax();
+//    public abstract int calculateTax();
 
     public abstract Person[] getPersons();
 

@@ -1,12 +1,14 @@
 package universityProject.items;
 
 import university.Address;
+import universityProject.IExpenses;
+import universityProject.ITax;
 import universityProject.people.Person;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-public class University extends UniversityUnit {
+public class University extends UniversityUnit implements ITax, IExpenses {
 
     private Faculty[] faculties;
     private Address address;

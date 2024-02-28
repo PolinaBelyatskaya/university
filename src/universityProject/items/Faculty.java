@@ -1,5 +1,7 @@
 package universityProject.items;
 
+import universityProject.IExpenses;
+import universityProject.ITax;
 import universityProject.documents.Timetable;
 import universityProject.people.Person;
 import universityProject.people.Teacher;
@@ -7,7 +9,7 @@ import universityProject.people.Teacher;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Faculty extends UniversityUnit {
+public class Faculty extends UniversityUnit implements ITax, IExpenses {
 
     private Department[] departments;
     private Group[] groups;

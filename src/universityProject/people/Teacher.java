@@ -1,8 +1,10 @@
 package universityProject.people;
 
+import universityProject.ITax;
+
 import java.util.Objects;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements ITax {
 
     private String degree;
     private int salaryPerMonth;
@@ -87,9 +89,9 @@ public class Teacher extends Person {
         }
     }
 
-    @Override
-    public int  calculateTax(){
 
+    @Override
+    public int calculateTax() {
         int tax;
 
         if(isPremium){
